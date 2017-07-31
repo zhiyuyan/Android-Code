@@ -12,12 +12,18 @@
         android:layout_alignParentBottom="true"
         android:text="Spring"/>
 
-    <ImageView
-        android:id="@+id/iv_ball"
+    <Button
+        android:id="@+id/btn_fling"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ball"
-        android:layout_gravity="center_horizontal"
-        android:layout_centerHorizontal="true"/>
+        android:layout_toRightOf="@id/btn_spring"
+        android:layout_marginLeft="8dp"
+        android:layout_alignParentBottom="true"
+        android:text="Fling"/>
+
+    <FrameLayout
+        android:id="@+id/fl_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
 </RelativeLayout>

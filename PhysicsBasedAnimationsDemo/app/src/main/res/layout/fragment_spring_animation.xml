@@ -9,6 +9,7 @@
         android:id="@+id/iv_ball"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
         android:src="@drawable/ball"/>
 
     <Button
@@ -18,15 +19,27 @@
         android:text="Go_X"
         android:layout_alignParentBottom="true"/>
 
-    <Button
-        android:id="@+id/btn_go_xy"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_above="@+id/ll_damping_ratio"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Go_XY"
-        android:layout_toRightOf="@id/btn_go_x"
-        android:layout_alignParentBottom="true"/>
+        android:layout_marginBottom="16dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_stiffness"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <SeekBar
+            android:id="@+id/sb_stiffness"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/ll_damping_ratio"
         android:layout_above="@id/btn_go_x"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -34,12 +47,12 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/tv_friction"
+            android:id="@+id/tv_damping_ratio"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
         <SeekBar
-            android:id="@+id/seek_bar"
+            android:id="@+id/sb_damping_ratio"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 

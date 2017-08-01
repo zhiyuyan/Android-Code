@@ -31,7 +31,14 @@ public class MainActivity extends AppCompatActivity {
 //                springAnimation.start();
 //            }
 //        });
-
+        findViewById(R.id.btn_spring).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.fl_container,new SpringAnimationFragment())
+                        .commit();
+            }
+        });
         findViewById(R.id.btn_fling).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -10,18 +10,24 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 public class MyFragmentPagerAdapter extends FragmentPagerAdapter {
 
+    private int mItemNumber;
+
     public MyFragmentPagerAdapter(FragmentManager fm) {
         super(fm);
     }
 
     @Override
     public Fragment getItem(int position) {
-        return null;
+        return MyFragment.newInstance(position);
     }
 
     @Override
     public int getCount() {
-        return 0;
+        return mItemNumber;
+    }
+
+    public void setItemNumber(int itemNumber) {
+        mItemNumber = itemNumber;
     }
 
 }

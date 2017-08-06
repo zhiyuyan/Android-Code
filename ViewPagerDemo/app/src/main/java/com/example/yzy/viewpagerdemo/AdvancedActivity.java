@@ -22,6 +22,8 @@ public class AdvancedActivity extends AppCompatActivity {
         List<String> photos = getData();
         ViewPager viewPager = (ViewPager) findViewById(R.id.view_pager);
         AdvancedAdapter advancedAdapter = new AdvancedAdapter(getSupportFragmentManager(), photos);
+        viewPager.setOffscreenPageLimit(2);
+        viewPager.setPageMargin(60);
         viewPager.setAdapter(advancedAdapter);
     }
 

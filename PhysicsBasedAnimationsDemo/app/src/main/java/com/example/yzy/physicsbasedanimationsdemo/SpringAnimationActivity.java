@@ -5,20 +5,17 @@ import android.support.animation.DynamicAnimation;
 import android.support.animation.SpringAnimation;
 import android.support.animation.SpringForce;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
 /**
- * Created by yzy on 2017/7/31.
+ * Created by yzy on 2017/8/6.
  */
-
-public class SpringAnimationFragment extends Fragment {
+public class SpringAnimationActivity extends AppCompatActivity {
 
     private ImageView mIvBall;
 
@@ -30,13 +27,13 @@ public class SpringAnimationFragment extends Fragment {
 
     private float mFinalPoint;
 
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.fragment_spring_animation, container, false);
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_spring_animation);
 
-        Button btnGo = (Button) root.findViewById(R.id.btn_go_x);
-        mIvBall = (ImageView) root.findViewById(R.id.iv_ball);
+        Button btnGo = (Button) findViewById(R.id.btn_go_x);
+        mIvBall = (ImageView) findViewById(R.id.iv_ball);
         btnGo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -51,26 +48,26 @@ public class SpringAnimationFragment extends Fragment {
                 springAnimation.addUpdateListener(new DynamicAnimation.OnAnimationUpdateListener() {
                     @Override
                     public void onAnimationUpdate(DynamicAnimation animation, float value, float velocity) {
-                        mIvBall.setColorFilter(getContext().getResources().getColor(R.color.colorAccent));
+                        mIvBall.setColorFilter(getResources().getColor(R.color.colorAccent));
                     }
                 });
                 springAnimation.addEndListener(new DynamicAnimation.OnAnimationEndListener() {
                     @Override
                     public void onAnimationEnd(DynamicAnimation animation, boolean canceled, float value, float velocity) {
-                        mIvBall.setColorFilter(getContext().getResources().getColor(R.color.colorPrimary));
+                        mIvBall.setColorFilter(getResources().getColor(R.color.colorPrimary));
                     }
                 });
                 springAnimation.start();
             }
         });
 
-        mTvDampingRatio = (TextView) root.findViewById(R.id.tv_damping_ratio);
+        mTvDampingRatio = (TextView) findViewById(R.id.tv_damping_ratio);
         mTvDampingRatio.setText("DampingRatio:" + mDampingRatio);
 
-        mTvStiffness = (TextView) root.findViewById(R.id.tv_stiffness);
+        mTvStiffness = (TextView) findViewById(R.id.tv_stiffness);
         mTvStiffness.setText("Stiffness:" + mStiffness);
 
-        SeekBar seekBar = (SeekBar) root.findViewById(R.id.sb_damping_ratio);
+        SeekBar seekBar = (SeekBar) findViewById(R.id.sb_damping_ratio);
         seekBar.setMax(20);
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
@@ -91,7 +88,7 @@ public class SpringAnimationFragment extends Fragment {
         });
         seekBar.setProgress((int) (mDampingRatio * 10));
 
-        seekBar = (SeekBar) root.findViewById(R.id.sb_stiffness);
+        seekBar = (SeekBar) findViewById(R.id.sb_stiffness);
         seekBar.setMax(200);
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
@@ -112,7 +109,6 @@ public class SpringAnimationFragment extends Fragment {
         });
         seekBar.setProgress((int) mStiffness);
 
-        return root;
     }
 
     private float getFinalPoint() {
@@ -121,5 +117,4 @@ public class SpringAnimationFragment extends Fragment {
         }
         return mFinalPoint;
     }
-
 }

@@ -28,5 +28,12 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        findViewById(R.id.btn_chain_spring).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, ChainSpringAnimationActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }

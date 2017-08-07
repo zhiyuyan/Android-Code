@@ -21,6 +21,8 @@
 
         <activity android:name=".FlingAnimationActivity"/>
 
+        <activity android:name=".ChainSpringAnimationActivity"/>
+
     </application>
 
 </manifest>

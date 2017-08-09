@@ -26,6 +26,14 @@
         android:layout_toRightOf="@id/btn_go_x"
         android:layout_alignParentBottom="true"/>
 
+    <Button
+        android:id="@+id/btn_go_custom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Go_custom"
+        android:layout_toRightOf="@id/btn_go_xy"
+        android:layout_alignParentBottom="true"/>
+
     <LinearLayout
         android:layout_above="@id/btn_go_x"
         android:layout_width="match_parent"

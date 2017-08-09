@@ -79,5 +79,33 @@ public class FlingAnimationActivity extends AppCompatActivity {
             }
         });
         seekBar.setProgress((int) (mFriction * 10));
+
+        findViewById(R.id.btn_go_custom).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final FlingAnimation flingAnimationX = new FlingAnimation(mIvBall, DynamicAnimation.TRANSLATION_X)
+                        .setFriction(mFriction)
+                        .setStartValue(0)
+                        .setStartVelocity(2000)
+                        .setMaxValue(2000)
+                        .setMinValue(-200);
+                FlingAnimation flingAnimationY = new FlingAnimation(mIvBall, DynamicAnimation.TRANSLATION_Y)
+                        .setFriction(mFriction)
+                        .setStartValue(0)
+                        .setStartVelocity(2000)
+                        .setMaxValue(2000)
+                        .setMinValue(-200);
+                flingAnimationX.addUpdateListener(new DynamicAnimation.OnAnimationUpdateListener() {
+                    @Override
+                    public void onAnimationUpdate(DynamicAnimation dynamicAnimation, float v, float v1) {
+                        if (v >= 400) {
+                            flingAnimationX.setStartVelocity(-200);
+                        }
+                    }
+                });
+                flingAnimationX.start();
+                flingAnimationY.start();
+            }
+        });
     }
 }

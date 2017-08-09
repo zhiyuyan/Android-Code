@@ -25,6 +25,7 @@ public class AdvancedActivity extends AppCompatActivity {
         viewPager.setOffscreenPageLimit(2);
         viewPager.setPageMargin(60);
         viewPager.setAdapter(advancedAdapter);
+        viewPager.setPageTransformer();
     }
 
     private List<String> getData() {

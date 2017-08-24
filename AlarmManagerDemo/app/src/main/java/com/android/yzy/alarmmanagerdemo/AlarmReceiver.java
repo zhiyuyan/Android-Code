@@ -9,6 +9,8 @@ import android.media.RingtoneManager;
 import android.net.Uri;
 import android.support.v4.app.NotificationCompat;
 
+import java.util.Calendar;
+
 /**
  * Created by yzy on 2017/8/9.
  */
@@ -32,5 +34,11 @@ public class AlarmReceiver extends BroadcastReceiver {
         NotificationManager mNotificationManager =
                 (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         mNotificationManager.notify(0, mBuilder.build());
+
+        // 5分钟后再次提醒
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(System.currentTimeMillis());
+        calendar.add(Calendar.MINUTE, 5);
+        AlarmUtils.setAlarm(context, calendar.getTimeInMillis());
     }
 }

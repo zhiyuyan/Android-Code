@@ -9,11 +9,11 @@ import java.util.List;
 /**
  * Created by yzy on 2017/8/3.
  */
-public class AdvancedAdapter extends FragmentStatePagerAdapter {
+public class MyFragmentStatePagerAdapter extends FragmentStatePagerAdapter {
 
     private List<String> mData;
 
-    public AdvancedAdapter(FragmentManager fm, List<String> data) {
+    public MyFragmentStatePagerAdapter(FragmentManager fm, List<String> data) {
         super(fm);
         mData = data;
     }

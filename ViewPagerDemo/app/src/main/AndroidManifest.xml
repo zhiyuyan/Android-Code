@@ -19,8 +19,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".AdvancedActivity"/>
+        <activity android:name=".FragmentStatePagerAdapterActivity" />
+        <activity android:name=".ClipChildrenDemoActivity" />
+        <activity android:name=".TransformDemoActivity"></activity>
     </application>
 
 </manifest>

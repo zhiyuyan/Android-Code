@@ -2,14 +2,11 @@ package com.example.yzy.viewpagerdemo;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-
-import java.util.ArrayList;
-import java.util.List;
+import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,21 +14,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
-        ViewPager viewPager1 = (ViewPager) findViewById(R.id.view_pager1);
-        MyPagerAdapter myPagerAdapter = new MyPagerAdapter();
-        List<String> list = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            list.add("我是" + i);
-        }
-        myPagerAdapter.setData(list);
-        viewPager1.setAdapter(myPagerAdapter);
-
-        ViewPager viewPager2 = (ViewPager) findViewById(R.id.view_pager2);
-        MyFragmentPagerAdapter myFragmentPagerAdapter = new MyFragmentPagerAdapter(getSupportFragmentManager());
-        myFragmentPagerAdapter.setItemNumber(4);
-        viewPager2.setAdapter(myFragmentPagerAdapter);
 
     }
 
@@ -46,10 +28,40 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_jump:
-                Intent intent = new Intent(MainActivity.this, AdvancedActivity.class);
+                Intent intent = new Intent(MainActivity.this, FragmentStatePagerAdapterActivity.class);
                 startActivity(intent);
                 return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    /**
+     * 跳转到ClipChildrenDemo页面
+     *
+     * @param view
+     */
+    public void onClipChildrenDemoClick(View view) {
+        Intent intent = new Intent(this, ClipChildrenDemoActivity.class);
+        startActivity(intent);
+    }
+
+    /**
+     * 跳转到FragmentStatePagerAdapterDemo页面
+     *
+     * @param view
+     */
+    public void onAdvancedActivityClick(View view) {
+        Intent intent = new Intent(this, FragmentStatePagerAdapterActivity.class);
+        startActivity(intent);
+    }
+
+    /**
+     * 跳转到动画Demo页面
+     *
+     * @param view
+     */
+    public void onTransformDemoClick(View view) {
+        Intent intent = new Intent(this, TransformDemoActivity.class);
+        startActivity(intent);
     }
 }
